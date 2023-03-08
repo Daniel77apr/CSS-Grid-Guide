@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>CSS Grid</title>
+</head>
+<body>
+    <div class="nav-bar" id="nav-bar">
+        <a href="" class="home">Home</a>
+        <a id="guides">Guides</a>
+        <div class="guides-div" id="guides-div">
+            <a href="">CSS Flexbox</a>
+            <a href="">CSS Grid</a>
+        </div>
+    </div>
+    <h1>CSS Grid</h1>
+    <section>
+        <div class="container container0">
+            <p>container</p>
+            <div class="item">item</div>
+            <div class="item">item</div>
+            <div class="item">item</div>
+            <div class="item">item</div>
+        </div>
+        <div class="code-div">
+            <code>
+                <span class="container-color">.container</span> {<br>
+                &emsp;&emsp;<span class="property-color">display:</span>
+                <span class="value-color"> grid;</span>
+                <span class="comment-color"> /* or inline-grid */</span><br>
+                }
+            </code>
+        </div>
+    </section>
+    <div class="sections">
+        <p>Sections:</p>
+        <a href="#flex-direction">flex-direction</a>
+        <a href="#flex-wrap">flex-wrap</a>
+        <a href="#justify-content">justify-content</a>
+        <a href="#align-items">align-items</a>
+        <a href="#align-content">align-content</a>
+        <a href="#order">order</a>
+        <a href="#flex-grow">flex-grow</a>
+        <a href="#flex-shrink">flex-shrink</a>
+        <a href="#align-self">align-self</a>
+    </div>
+    <section>
+    <section>
+        <h2 class="container-color">grid-template-columns &<br>
+        grid-template-rows</h2>
+        <div class="container container1" id="div1">
+            <div class="item">sample text</div>
+            <div class="item">sample text</div>
+            <div class="item">sample text</div>
+            <div class="item">sample text</div>
+            <div class="item">sample text</div>
+            <div class="item">sample text</div>
+        </div>
+        <div class="code-div">
+            <code>
+                <span class="container-color">.container</span>
+                {<br>
+                    &emsp;&emsp;<span class="property-color">grid-template-columns:</span>
+                    <span class="value-color">
+                        <select name="" id="">
+                            <option value="columns-none">none</option>
+                            <option value="columns-1fr-1fr">1fr 1fr</option>
+                            <option value="columns-1fr-2fr-1fr">1fr 2fr 1fr</option>
+                            <option value="columns-80px-1fr-2fr">80px 1fr 2fr</option>
+                            <option value="columns-auto-auto-auto">auto auto auto</option>
+                            <option value="columns-50percent-1fr-auto">50% 1fr auto</option>
+                            <option value="columns-min-content-auto-max-content">min-content auto max-content</option>
+                        </select>;
+                    </span><br>
+                    &emsp;&emsp;<span class="property-color">grid-template-rows:</span>
+                    <span class="value-color">
+                        <select name="" id="">
+                            <option value="rows-none">none</option>
+                            <option value="rows-1fr-1fr">1fr 1fr</option>
+                            <option value="rows-1fr-2fr-1fr">1fr 2fr 1fr</option>
+                            <option value="rows-80px-1fr-2fr">80px 1fr 2fr</option>
+                            <option value="rows-auto-auto-auto">auto auto auto</option>
+                            <option value="rows-50percent-1fr-auto">50% 1fr auto</option>
+                        </select>;
+                    </span><br>
+                }
+            </code>
+        </div>
+    </section>
+    <section>
+        <h2><span class="container-color">grid-template-areas &</span><br>
+        <span class="item-color">grid-area</span></h2>
+        <div class="container container2" id="div2">
+            <div class="item dynamic-item0">1</div>
+            <div class="item dynamic-item0">2</div>
+            <div class="item dynamic-item0">3</div>
+            <div class="item dynamic-item0">4</div>
+        </div>
+        <div class="code-div">
+            <code>
+                <span class="container-color">.container</span> {<br>
+                    &emsp;&emsp;<span class="property-color">grid-template-columns:</span> <span class="value-color">1fr 3fr 1fr;</span><br>
+                    &emsp;&emsp;<span class="property-color">grid-template-rows: </span><span class="value-color">1fr 2fr 1fr;</span><br>
+                    &emsp;&emsp;<span class="property-color">grid-template-areas:</span><br>
+                    <span class="value-color">
+                        &emsp;&emsp;&emsp;&emsp;"<select name="" id="" >
+                            <option value="a" selected>a</option>
+                            <option value="b">b</option>
+                            <option value="c">c</option>
+                            <option value="d">d</option>
+                            <option value=".">.</option>
+                        </select>
+                        <select name="" id="" >
+                            <option value="a" selected>a</option>
+                            <option value="b">b</option>
+                            <option value="c">c</option>
+                            <option value="d">d</option>
+                            <option value=".">.</option>
+                        </select>
+                        <select name="" id="" >
+                            <option value="a" selected>a</option>
+                            <option value="b">b</option>
+                            <option value="c">c</option>
+                            <option value="d">d</option>
+                            <option value=".">.</option>
+                        </select>"<br>
+                        &emsp;&emsp;&emsp;&emsp;"<select name="" id="" >
+                            <option value="a">a</option>
+                            <option value="b" selected>b</option>
+                            <option value="c">c</option>
+                            <option value="d">d</option>
+                            <option value=".">.</option>
+                        </select>
+                        <select name="" id="" >
+                            <option value="a">a</option>
+                            <option value="b">b</option>
+                            <option value="c" selected>c</option>
+                            <option value="d">d</option>
+                            <option value=".">.</option>
+                        </select>
+                        <select name="" id="" >
+                            <option value="a">a</option>
+                            <option value="b">b</option>
+                            <option value="c">c</option>
+                            <option value="d">d</option>
+                            <option value="." selected>.</option>
+                        </select>"<br>
+                        &emsp;&emsp;&emsp;&emsp;"<select name="" id="" >
+                            <option value="a">a</option>
+                            <option value="b" selected>b</option>
+                            <option value="c">c</option>
+                            <option value="d">d</option>
+                            <option value=".">.</option>
+                        </select>
+                        <select name="" id="" >
+                            <option value="a">a</option>
+                            <option value="b">b</option>
+                            <option value="c">c</option>
+                            <option value="d" selected>d</option>
+                            <option value=".">.</option>
+                        </select>
+                        <select name="" id="" >
+                            <option value="a">a</option>
+                            <option value="b">b</option>
+                            <option value="c">c</option>
+                            <option value="d">d</option>
+                            <option value="." selected>.</option>
+                        </select>";
+                    </span><br>
+                }<br>
+                <br>
+                <span class="item-color">.item 1</span> {<br>
+                    &emsp;&emsp;<span class="property-color">grid-area:</span> <span class="value-color">
+                        <select name="" id="">
+                            <option value="a" selected>a</option>
+                            <option value="b">b</option>
+                            <option value="c">c</option>
+                            <option value="d">d</option>
+                        </select>;
+                    </span><br>
+                }<br>
+                <br>
+                <span class="item-color">.item 2</span> {<br>
+                    &emsp;&emsp;<span class="property-color">grid-area:</span> <span class="value-color">
+                        <select name="" id="">
+                            <option value="a">a</option>
+                            <option value="b" selected>b</option>
+                            <option value="c">c</option>
+                            <option value="d">d</option>
+                        </select>;
+                    </span><br>
+                }<br>
+                <br>
+                <span class="item-color">.item 3</span> {<br>
+                    &emsp;&emsp;<span class="property-color">grid-area:</span> <span class="value-color">
+                        <select name="" id="">
+                            <option value="a">a</option>
+                            <option value="b">b</option>
+                            <option value="c" selected>c</option>
+                            <option value="d">d</option>
+                        </select>;
+                    </span><br>
+                }<br>
+                <br>
+                <span class="item-color">.item 4</span> {<br>
+                    &emsp;&emsp;<span class="property-color">grid-area:</span> <span class="value-color">
+                        <select name="" id="">
+                            <option value="a">a</option>
+                            <option value="b">b</option>
+                            <option value="c">c</option>
+                            <option value="d" selected>d</option>
+                        </select>;
+                    </span><br>
+                }
+            </code>
+        </div>
+        <div class="container container3" id="div3">
+            <div class="item dynamic-item1">1</div>
+            <div class="item dynamic-item1">2</div>
+            <div class="item dynamic-item1">3</div>
+        </div>
+        <div class="code-div">
+            <code>
+                <span class="container-color">.container</span> {<br>
+                    &emsp;&emsp;<span class="property-color">grid-template-columns:</span> <span class="value-color">1fr 4fr;</span><br>
+                    &emsp;&emsp;<span class="property-color">grid-template-rows: </span><span class="value-color">1fr 3fr;</span><br>
+                    &emsp;&emsp;<span class="property-color">grid-template-areas:</span><br>
+                    <span class="value-color">
+                        &emsp;&emsp;&emsp;&emsp;"header header"<br>
+                        &emsp;&emsp;&emsp;&emsp;"sidebar content"
+                    </span><br>
+                }<br>
+                <br>
+                <span class="comment-color">/* For more control, you can set an item's grid-area value to the names of the four surrounding lines, like this: row-start / column-start / row-end / column-end.<br>
+                This way, items can occupy more or less than one area, and even overlap each other (arrange overlaping items with z-index).<br>
+                <br>
+                NOTE: Each line can have more than 1 name depending on the disposition of the grid-template-areas of the container. */</span><br>
+                <br>
+                <span class="item-color">.item 1</span> {<br>
+                    &emsp;&emsp;<span class="property-color">grid-area:</span> <span class="value-color">
+                        <select name="" id="">
+                            <option value="header-start" selected>header-start</option>
+                            <option value="header-end">header-end</option>
+                            <option value="sidebar-start">sidebar-start</option>
+                            <option value="sidebar-end">sidebar-end</option>
+                            <option value="content-start">content-start</option>
+                            <option value="content-end">content-end</option>
+                        </select> / 
+                        <select name="" id="">
+                            <option value="header-start">header-start</option>
+                            <option value="header-end">header-end</option>
+                            <option value="sidebar-start" selected>sidebar-start</option>
+                            <option value="sidebar-end">sidebar-end</option>
+                            <option value="content-start">content-start</option>
+                            <option value="content-end">content-end</option>
+                        </select> / 
+                        <select name="" id="">
+                            <option value="header-start">header-start</option>
+                            <option value="header-end" selected>header-end</option>
+                            <option value="sidebar-start">sidebar-start</option>
+                            <option value="sidebar-end">sidebar-end</option>
+                            <option value="content-start">content-start</option>
+                            <option value="content-end">content-end</option>
+                        </select> / 
+                        <select name="" id="">
+                            <option value="header-start">header-start</option>
+                            <option value="header-end">header-end</option>
+                            <option value="sidebar-start">sidebar-start</option>
+                            <option value="sidebar-end">sidebar-end</option>
+                            <option value="content-start">content-start</option>
+                            <option value="content-end" selected>content-end</option>
+                        </select>;
+                    </span><br>
+                    &emsp;&emsp;<span class="property-color">z-index:</span> <span class="value-color">
+                        <input type="number" name="" id="" min="0">;
+                    </span>
+                </span><br>
+                }<br>
+                <br>
+                <span class="item-color">.item 2</span> {<br>
+                    &emsp;&emsp;<span class="property-color">grid-area:</span> <span class="value-color">
+                        <select name="" id="">
+                            <option value="header-start">header-start</option>
+                            <option value="header-end">header-end</option>
+                            <option value="sidebar-start">sidebar-start</option>
+                            <option value="sidebar-end">sidebar-end</option>
+                            <option value="content-start" selected>content-start</option>
+                            <option value="content-end">content-end</option>
+                        </select> / 
+                        <select name="" id="">
+                            <option value="header-start">header-start</option>
+                            <option value="header-end">header-end</option>
+                            <option value="sidebar-start" selected>sidebar-start</option>
+                            <option value="sidebar-end">sidebar-end</option>
+                            <option value="content-start">content-start</option>
+                            <option value="content-end">content-end</option>
+                        </select> / 
+                        <select name="" id="">
+                            <option value="header-start">header-start</option>
+                            <option value="header-end">header-end</option>
+                            <option value="sidebar-start">sidebar-start</option>
+                            <option value="sidebar-end">sidebar-end</option>
+                            <option value="content-start">content-start</option>
+                            <option value="content-end" selected>content-end</option>
+                        </select> / 
+                        <select name="" id="">
+                            <option value="header-start">header-start</option>
+                            <option value="header-end">header-end</option>
+                            <option value="sidebar-start">sidebar-start</option>
+                            <option value="sidebar-end" selected>sidebar-end</option>
+                            <option value="content-start">content-start</option>
+                            <option value="content-end">content-end</option>
+                        </select>;
+                    </span><br>
+                    &emsp;&emsp;<span class="property-color">z-index:</span> <span class="value-color">
+                        <input type="number" name="" id="" min="0">;
+                    </span>
+                </span><br>
+                }<br>
+                <br>
+                <span class="item-color">.item 3</span> {<br>
+                    &emsp;&emsp;<span class="property-color">grid-area:</span> <span class="value-color">
+                        <select name="" id="">
+                            <option value="header-start">header-start</option>
+                            <option value="header-end">header-end</option>
+                            <option value="sidebar-start">sidebar-start</option>
+                            <option value="sidebar-end">sidebar-end</option>
+                            <option value="content-start" selected>content-start</option>
+                            <option value="content-end">content-end</option>
+                        </select> / 
+                        <select name="" id="">
+                            <option value="header-start">header-start</option>
+                            <option value="header-end">header-end</option>
+                            <option value="sidebar-start">sidebar-start</option>
+                            <option value="sidebar-end">sidebar-end</option>
+                            <option value="content-start" selected>content-start</option>
+                            <option value="content-end">content-end</option>
+                        </select> / 
+                        <select name="" id="">
+                            <option value="header-start">header-start</option>
+                            <option value="header-end">header-end</option>
+                            <option value="sidebar-start">sidebar-start</option>
+                            <option value="sidebar-end">sidebar-end</option>
+                            <option value="content-start">content-start</option>
+                            <option value="content-end" selected>content-end</option>
+                        </select> / 
+                        <select name="" id="">
+                            <option value="header-start">header-start</option>
+                            <option value="header-end">header-end</option>
+                            <option value="sidebar-start">sidebar-start</option>
+                            <option value="sidebar-end">sidebar-end</option>
+                            <option value="content-start">content-start</option>
+                            <option value="content-end" selected>content-end</option>
+                        </select>;
+                    </span><br>
+                    &emsp;&emsp;<span class="property-color">z-index:</span> <span class="value-color">
+                        <input type="number" name="" id="" min="0">;
+                    </span>
+                </span><br>
+                }
+            </code>
+        </div>
+    </section>
+<script type="module" src="script.js"></script>
+</body>
