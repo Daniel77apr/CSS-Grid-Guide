@@ -50,21 +50,82 @@ const sectionArr = [
     },
     {
         inputs: [selectEls[2], selectEls[3], selectEls[4], selectEls[5], selectEls[6], selectEls[7], selectEls[8], selectEls[9], selectEls[10], selectEls[11], selectEls[12], selectEls[13], selectEls[14]],
-        advancedInputs: [[selectEls[2], selectEls[3], selectEls[4]], [selectEls[5], selectEls[6], selectEls[7]], [selectEls[8], selectEls[9], selectEls[10]]],
-        normalInputs: [selectEls[11], selectEls[12], selectEls[13], selectEls[14]],
-        advancedProperty: "gridTemplateAreas",
-        property: "gridArea",
-        advancedDiv: document.getElementById("div2"),
-        divs: document.getElementsByClassName("dynamic-item0"),
-        function: changeAdvancedStyle
+        complex: {
+            complexInputs: [[selectEls[2], selectEls[3], selectEls[4]], [selectEls[5], selectEls[6], selectEls[7]], [selectEls[8], selectEls[9], selectEls[10]]],
+            complexProperty: "gridTemplateAreas",
+            complexDiv: document.getElementById("div2")
+        },
+        simple: {
+            simpleInputs: [selectEls[11], selectEls[12], selectEls[13], selectEls[14]],
+            simpleProperty: "gridArea",
+            simpleDivs: document.getElementsByClassName("dynamic-item0")
+        },
+        function: changeComplexStyle
     },
     {
         inputs: [selectEls[15], selectEls[16], selectEls[17], selectEls[18], selectEls[19], selectEls[20], selectEls[21], selectEls[22], selectEls[23], selectEls[24], selectEls[25], selectEls[26], inputEls[0], inputEls[1], inputEls[2]],
-        advancedInputs: [[selectEls[15], selectEls[16], selectEls[17], selectEls[18]], [selectEls[19], selectEls[20], selectEls[21], selectEls[22]], [selectEls[23], selectEls[24], selectEls[25], selectEls[26]]],
-        normalInputs: [inputEls[0], inputEls[1], inputEls[2]],
-        advancedProperty: "grid-area",
-        advancedDivs: document.getElementsByClassName("dynamic-item1"),
-        function: changeAdvancedStyle
+        complex: {
+            complexInputs: [[selectEls[15], selectEls[16], selectEls[17], selectEls[18]], [selectEls[19], selectEls[20], selectEls[21], selectEls[22]], [selectEls[23], selectEls[24], selectEls[25], selectEls[26]]],
+            simpleInputs: [inputEls[0], inputEls[1], inputEls[2]],
+            complexProperty: "gridArea",
+            simpleProperty: "zIndex",
+            complexDivs: document.getElementsByClassName("dynamic-item1")
+        },
+        function: changeComplexStyle
+    },
+    {
+        inputs: [selectEls[27], selectEls[28], selectEls[29], selectEls[30], selectEls[31], selectEls[32], selectEls[33], selectEls[34], selectEls[35], selectEls[36], selectEls[37], selectEls[38], inputEls[3], inputEls[4], inputEls[5]],
+        complex: {
+            complexInputs: [[[selectEls[27], selectEls[28]], [selectEls[29], selectEls[30]]], [[selectEls[31], selectEls[32]], [selectEls[33], selectEls[34]]], [[selectEls[35], selectEls[36]], [selectEls[37], selectEls[38]]]],
+            simpleInputs: [inputEls[3], inputEls[4], inputEls[5]],
+            complexProperty: "gridColumn",
+            complexProperty2: "gridRow",
+            simpleProperty: "zIndex",
+            complexDivs: document.getElementsByClassName("dynamic-item2")
+        },
+        function: changeComplexStyle
+    },
+    {
+        inputs: [selectEls[39]],
+        classes: ["no-gap", "small-gap", "small-big-gap", "big-small-gap"],
+        div: document.getElementById("div5"),
+        function: changeClass
+    },
+    {
+        inputs: [selectEls[40]],
+        classes: ["justify-content-stretch", "justify-content-start", "justify-content-center", "justify-content-end","justify-content-space-around",  "justify-content-space-between", "justify-content-space-evenly"],
+        div: document.getElementById("div6"),
+        function: changeClass
+    },
+    {
+        inputs: [selectEls[41]],
+        classes: ["align-content-stretch", "align-content-start", "align-content-center", "align-content-end","align-content-space-around",  "align-content-space-between", "align-content-space-evenly"],
+        div: document.getElementById("div7"),
+        function: changeClass
+    },
+    {
+        inputs: [selectEls[42]],
+        classes: ["justify-items-stretch", "justify-items-start", "justify-items-center", "justify-items-end"],
+        div: document.getElementById("div8"),
+        function: changeClass
+    },
+    {
+        inputs: [selectEls[43]],
+        classes: ["align-items-stretch", "align-items-start", "align-items-center", "align-items-end"],
+        div: document.getElementById("div9"),
+        function: changeClass
+    },
+    {
+        inputs: [selectEls[44]],
+        classes: ["justify-self-stretch", "justify-self-start", "justify-self-center", "justify-self-end"],
+        div: document.getElementById("div10"),
+        function: changeClass
+    },
+    {
+        inputs: [selectEls[45]],
+        classes: ["align-self-stretch", "align-self-start", "align-self-center", "align-self-end"],
+        div: document.getElementById("div11"),
+        function: changeClass
     }
 ];
 
@@ -81,30 +142,69 @@ function changeClass(section) {
     }
 }
 
-function changeAdvancedStyle(section) {
+function changeComplexStyle(section) {
     return function() {
-        const currentAdvancedDiv = sectionArr[section].advancedDiv;
-        const currentDivs = sectionArr[section].divs;
-        const currentAdvancedProperty = sectionArr[section].advancedProperty;
-        const currentProperty = sectionArr[section].property;
-        const currentAdvancedInputs = sectionArr[section].advancedInputs;
-        const currentNormalInputs = sectionArr[section].normalInputs;
-        const Arr = [];
+        // Complex
+        const complexObj = sectionArr[section].complex;
 
-        for(let i = 0; i < currentAdvancedInputs.length; i++) {
-            let newArr = [];
-            for(let j = 0; j < currentAdvancedInputs[i].length; j++) {
-                newArr.push(currentAdvancedInputs[i][j].value);
-            }
-            let Str = newArr.join(" ")
-            Arr.push(Str);
+        switch(complexObj.complexProperty) {
+            case "gridTemplateAreas":
+                const Arr = [];
+                for(let i = 0; i < complexObj.complexInputs.length; i++) {
+                    let newArr = [];
+                    for(let j = 0; j < complexObj.complexInputs[i].length; j++) {
+                        newArr.push(complexObj.complexInputs[i][j].value);
+                    }
+                    let Str = newArr.join(" ")
+                    Arr.push(Str);
+                }
+                const newStr = `"${Arr.join(`" "`)}"`;
+                complexObj.complexDiv.style[complexObj.complexProperty] = newStr;
+                break;
+            case "gridArea":
+                for(let i = 0; i < complexObj.complexDivs.length; i++) {
+                    const Arr = [];
+                    for(let j = 0; j < complexObj.complexInputs[i].length; j++) {
+                        Arr.push(complexObj.complexInputs[i][j].value);
+                    }
+                    const newStr = Arr.join(" / ");
+                    complexObj.complexDivs[i].style[complexObj.complexProperty] = newStr;
+                    complexObj.complexDivs[i].style[complexObj.simpleProperty] = complexObj.simpleInputs[i].value;
+                }
+                break;
+            case "gridColumn":
+                for (let i = 0; i < complexObj.complexDivs.length; i++) {
+                    const columnArr = [];
+                    const rowArr = [];
+                    for(let j = 0; j < complexObj.complexInputs[i].length; j++) {
+                        if(j < 1) {
+                           columnArr.push(complexObj.complexInputs[i][j][0].value);
+                           columnArr.push(complexObj.complexInputs[i][j][1].value);
+                        } else {
+                            rowArr.push(complexObj.complexInputs[i][j][0].value);
+                            rowArr.push(complexObj.complexInputs[i][j][1].value);
+                        }
+                    }
+                    let separator = "";
+                    if(i < 2) {
+                        separator = " / ";
+                    } else {
+                        separator = " / span ";
+                    }
+                    const columnStr = columnArr.join(`${separator}`);
+                    const rowStr = rowArr.join(`${separator}`);
+                    complexObj.complexDivs[i].style[complexObj.complexProperty] = columnStr;
+                    complexObj.complexDivs[i].style[complexObj.complexProperty2] = rowStr;
+                    complexObj.complexDivs[i].style[complexObj.simpleProperty] = complexObj.simpleInputs[i].value;
+                }
         }
-        const newStr = `"${Arr.join(`" "`)}"`;
-        console.log(newStr);
-        currentAdvancedDiv.style[currentAdvancedProperty] = newStr;
 
-        for(let i = 0; i < currentDivs.length; i++) {
-            currentDivs[i].style[currentProperty] = currentNormalInputs[i].value;
+        // Simple
+        if(!!sectionArr[section].simple) {
+            const simpleObj = sectionArr[section].simple;
+            for(let i = 0; i < simpleObj.simpleDivs.length; i++) {
+                simpleObj.simpleDivs[i].style[simpleObj.simpleProperty] = simpleObj.simpleInputs[i].value;
+            }
         }
     }
 }
