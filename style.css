@@ -181,6 +181,15 @@ a.home {
     margin: 0.2rem 0;
 }
 
+.second-line {
+    position: absolute;
+    transform: translate(0.75rem, -0.05rem);
+}
+
+.sections .two-liner {
+    margin-bottom: 1.45rem;
+}
+
 /* SECTION 0 */
 
 .container0 {
